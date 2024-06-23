@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(10)
+  const [count, addCount] = useState(10)
+  const [sCount, subCount] = useState(10)
 
   return (
     <>
@@ -18,16 +19,19 @@ function App() {
       </div>
       <h1>T minus 10, 9, 8, 7...</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count - 1)}>
-          count is {count}
+        <button onClick={() => addCount((count) => count + 10)}>
+          Click to Add 10: ({count})
         </button>
         <p>
           Changed:
-          React logo in App.css spinning counterclockwise
+          Added 2 buttons Click to add 10 or remove 5 starting from usestate 10
         </p>
+        <button onClick={() => subCount((sCount) => sCount - 5)}>
+          Click to subtract 5: ({sCount})
+        </button>
       </div>
       <p className="read-the-docs">
-        One small step for mans
+        Another small step for mans
       </p>
     </>
   )
