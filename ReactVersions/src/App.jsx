@@ -4,9 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, addCount] = useState(10)
-  const [sCount, subCount] = useState(10)
-
+  const [count, stateCount] = useState(10)
   return (
     <>
       <div>
@@ -17,18 +15,19 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>T minus 10, 9, 8, 7...</h1>
+      <h1>Nye V Nwe App</h1>
+      <h1> {count} </h1>
       <div className="card">
-        <button onClick={() => addCount((count) => count + 10)}>
-          Click to Add 10: ({count})
+        <button onClick={() => stateCount((count) => count + 5)}>
+          Nye:
+        </button>
+        <button onClick={() => stateCount((count) => count - 50)}>
+          Nwe:
         </button>
         <p>
           Changed:
-          Added 2 buttons Click to add 10 or remove 5 starting from usestate 10
+          Give 5 and get 50 taken from you.
         </p>
-        <button onClick={() => subCount((sCount) => sCount - 5)}>
-          Click to subtract 5: ({sCount})
-        </button>
       </div>
       <p className="read-the-docs">
         Another small step for mans
