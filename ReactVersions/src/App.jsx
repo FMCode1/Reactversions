@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(10)
 
   return (
     <>
@@ -16,17 +16,18 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>T minus 10, 9, 8, 7...</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count - 1)}>
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Changed:
+          React logo in App.css spinning counterclockwise
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        One small step for mans
       </p>
     </>
   )
