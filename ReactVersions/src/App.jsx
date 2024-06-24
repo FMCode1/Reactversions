@@ -1,39 +1,65 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, stateCount] = useState(10)
+  const [avg, setAvg] = useState(80);
+  const [performance, setPerformance] = useState('good');
+
+  const IncreasePerformance = () => {
+    // increase the average by 1
+    const newAvg = avg + 1;
+
+    if (newAvg == 101) return;
+
+    if (newAvg >= 90) {
+      setPerformance("great");
+    } else if (newAvg >= 70 && newAvg < 90) {
+      setPerformance('good'); // 70 - 89 is light green
+    } else if (newAvg < 70 && newAvg >= 60) {
+      setPerformance("okay"); // 60 - 69 is yellow
+    } else if (newAvg < 60 && newAvg >= 50) {
+      setPerformance("medium ");
+    } else {
+      setPerformance("bad");
+    }
+    setAvg(newAvg);
+  }
+
+  const ReducePerformance = () => {
+    // reduce the average by 1
+    const newAvg = avg - 1;
+
+    if (newAvg == -1) return; // if the average is 0, do not reduce it further 
+
+    if (newAvg >= 90) {
+      setPerformance("great");
+    } else if (newAvg >= 70 && newAvg < 90) {
+      setPerformance('good'); // 70 - 89 is light green
+    } else if (newAvg < 70 && newAvg >= 60) {
+      setPerformance("okay"); // 60 - 69 is yellow
+    } else if (newAvg < 60 && newAvg >= 50) {
+      setPerformance("medium ");
+    } else {
+      setPerformance("bad");
+    }
+      setAvg(newAvg);
+  }
+
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <h1>GPA Performance Indicator</h1>
+    <div className='app-container'>
+      <div className='temperature-display-container'>
+        <div className={`temperature-display ${performance}`}> 
+          {avg}%
+        </div>
       </div>
-      <h1>Nye V Nwe App</h1>
-      <h1> {count} </h1>
-      <div className="card">
-        <button onClick={() => stateCount((count) => count + 5)}>
-          Nye:
-        </button>
-        <button onClick={() => stateCount((count) => count - 50)}>
-          Nwe:
-        </button>
-        <p>
-          Changed:
-          Give 5 and get 50 taken from you.
-        </p>
+      <div className='button-container'>
+        <button onClick={() => IncreasePerformance()}>+</button>
+        <button onClick={() => ReducePerformance()}>-</button>
       </div>
-      <p className="read-the-docs">
-        Another small step for mans
-      </p>
+    </div>
     </>
   )
 }
-
 export default App
