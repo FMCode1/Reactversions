@@ -51,7 +51,7 @@ function App() {
     <div className='app-container'>
       <div className='temperature-display-container'>
         <div className={`temperature-display ${performance}`}> 
-          {avg}%
+          <h2>{avg}%</h2>
         </div>
       </div>
       <div className='button-container'>
